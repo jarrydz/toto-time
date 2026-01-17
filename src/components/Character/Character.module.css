@@ -1,0 +1,160 @@
+/* Character Avatar */
+.avatar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.emojiContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.small .emojiContainer {
+  width: 48px;
+  height: 48px;
+}
+
+.small .emoji {
+  font-size: 28px;
+}
+
+.medium .emojiContainer {
+  width: 72px;
+  height: 72px;
+}
+
+.medium .emoji {
+  font-size: 44px;
+}
+
+.large .emojiContainer {
+  width: 96px;
+  height: 96px;
+}
+
+.large .emoji {
+  font-size: 60px;
+}
+
+.xlarge .emojiContainer {
+  width: 140px;
+  height: 140px;
+}
+
+.xlarge .emoji {
+  font-size: 90px;
+}
+
+.emoji {
+  line-height: 1;
+}
+
+.name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+}
+
+.animated .emojiContainer {
+  animation: bounce 2s infinite ease-in-out;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Character Speech */
+.speechContainer {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.4s ease-out;
+}
+
+.speechContainer.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.emojiBox {
+  flex-shrink: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.speechContainer.small .emojiBox {
+  width: 56px;
+  height: 56px;
+}
+
+.speechContainer.small .speechEmoji {
+  font-size: 32px;
+}
+
+.speechContainer.medium .emojiBox {
+  width: 72px;
+  height: 72px;
+}
+
+.speechContainer.medium .speechEmoji {
+  font-size: 44px;
+}
+
+.speechContainer.large .emojiBox {
+  width: 96px;
+  height: 96px;
+}
+
+.speechContainer.large .speechEmoji {
+  font-size: 60px;
+}
+
+.speechEmoji {
+  line-height: 1;
+  animation: bounce 2s infinite ease-in-out;
+}
+
+.speechBubble {
+  background: white;
+  border-radius: 20px;
+  padding: 16px 20px;
+  position: relative;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  flex: 1;
+}
+
+.speechText {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  line-height: 1.5;
+}
+
+.speechContainer.small .speechText {
+  font-size: 14px;
+}
+
+.speechContainer.large .speechText {
+  font-size: 20px;
+}
+
+.speechTail {
+  position: absolute;
+  left: -12px;
+  top: 20px;
+  width: 0;
+  height: 0;
+  border: 12px solid transparent;
+  border-right-color: white;
+  border-left: 0;
+}

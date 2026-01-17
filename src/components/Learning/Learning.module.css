@@ -1,0 +1,639 @@
+/* Learning Hub */
+.container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.backButton {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: none;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.backButton:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.title {
+  margin: 0;
+  font-size: 32px;
+  color: white;
+  font-weight: 800;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.subtitle {
+  margin: 8px 0 0;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+}
+
+.lessonList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.lessonCard {
+  background: white;
+  border: none;
+  border-radius: 20px;
+  padding: 20px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.lessonCard:hover:not(.locked) {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+
+.lessonCard.locked {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.lessonCard.completed {
+  border-left: 4px solid var(--lesson-color);
+}
+
+.lessonHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.lessonIcon {
+  font-size: 40px;
+  line-height: 1;
+}
+
+.lessonInfo {
+  flex: 1;
+}
+
+.lessonNumber {
+  font-size: 12px;
+  color: #888;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.lessonTitle {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+  font-weight: 700;
+}
+
+.checkMark {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.lockIcon {
+  font-size: 24px;
+}
+
+.lessonDescription {
+  margin: 0 0 12px;
+  font-size: 14px;
+  color: #666;
+  line-height: 1.4;
+}
+
+.lessonFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.difficulty {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 100px;
+  text-transform: capitalize;
+}
+
+.beginner {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.intermediate {
+  background: #fff3e0;
+  color: #ef6c00;
+}
+
+.advanced {
+  background: #fce4ec;
+  color: #c2185b;
+}
+
+.stepCount {
+  font-size: 12px;
+  color: #888;
+  font-weight: 500;
+}
+
+.completedOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0 20px;
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.legendIcon {
+  font-size: 16px;
+}
+
+/* Individual Lesson View */
+.lessonContainer {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+  display: flex;
+  flex-direction: column;
+  animation: slideIn 0.4s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Fun Animations */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-5deg); }
+  75% { transform: rotate(5deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.animateBounce {
+  animation: bounce 1s ease-in-out infinite;
+}
+
+.animateWiggle {
+  animation: wiggle 0.5s ease-in-out infinite;
+}
+
+.animatePulse {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.animateSpin {
+  animation: spin 3s linear infinite;
+}
+
+/* Character Teacher Section */
+.characterTeacher {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding: 20px;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  border-radius: 20px;
+  border: 2px dashed rgba(102, 126, 234, 0.3);
+}
+
+.characterEmoji {
+  font-size: 56px;
+  line-height: 1;
+  flex-shrink: 0;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+.speechBubble {
+  flex: 1;
+  background: white;
+  border-radius: 20px;
+  padding: 16px 20px;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.speechBubble::before {
+  content: '';
+  position: absolute;
+  left: -12px;
+  top: 20px;
+  width: 0;
+  height: 0;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-right: 14px solid white;
+}
+
+.speechText {
+  font-size: 16px;
+  color: #444;
+  line-height: 1.5;
+  margin: 0 0 8px;
+  font-weight: 500;
+}
+
+.characterName {
+  font-size: 12px;
+  color: #888;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.lessonHeader {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.closeButton {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: white;
+  border: none;
+  font-size: 18px;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.closeButton:hover {
+  background: #f5f5f5;
+  color: #333;
+}
+
+.lessonProgress {
+  flex: 1;
+}
+
+.lessonProgressText {
+  display: block;
+  font-size: 12px;
+  color: #666;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.lessonMain {
+  flex: 1;
+  padding: 0 20px 20px;
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.stepCard {
+  background: white;
+  border-radius: 24px;
+  padding: 28px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.stepHeader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 2px dashed #eee;
+}
+
+.stepIcon {
+  font-size: 48px;
+  line-height: 1;
+}
+
+.stepTitle {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+  font-weight: 700;
+}
+
+.stepContent {
+  flex: 1;
+}
+
+.stepText {
+  font-size: 18px;
+  color: #444;
+  line-height: 1.6;
+  margin: 0 0 20px;
+}
+
+.timeExample {
+  background: linear-gradient(135deg, var(--lesson-color) 0%, color-mix(in srgb, var(--lesson-color) 80%, #000) 100%);
+  border-radius: 20px;
+  padding: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.timeExample::before {
+  content: '⏰';
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  font-size: 100px;
+  opacity: 0.15;
+  transform: rotate(15deg);
+}
+
+.timeExampleLabel {
+  display: block;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 700;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.timeExampleValue {
+  font-size: 56px;
+  font-weight: 800;
+  color: white;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  animation: pulse 2s ease-in-out infinite;
+  display: inline-block;
+}
+
+.hint {
+  background: #fff8e1;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.hintIcon {
+  font-size: 24px;
+  line-height: 1;
+}
+
+.hintText {
+  font-size: 14px;
+  color: #8d6e00;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* Fun Fact Section */
+.funFact {
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 16px;
+  border: 2px solid #a5d6a7;
+}
+
+.funFactIcon {
+  font-size: 28px;
+  line-height: 1;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.funFactContent {
+  flex: 1;
+}
+
+.funFactLabel {
+  display: block;
+  font-size: 12px;
+  color: #2e7d32;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.funFactText {
+  font-size: 14px;
+  color: #1b5e20;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* Practice Callout */
+.practiceCallout {
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  border-radius: 16px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 20px;
+  border: 2px dashed #64b5f6;
+}
+
+.practiceIcon {
+  font-size: 28px;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.practiceText {
+  font-size: 15px;
+  color: #1565c0;
+  font-weight: 600;
+}
+
+.interactiveSection {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 2px dashed #eee;
+}
+
+.lessonFooter {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  background: white;
+  border-top: 1px solid #eee;
+}
+
+/* Celebration */
+.celebrationContainer {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.celebrationContent {
+  background: white;
+  border-radius: 32px;
+  padding: 40px;
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.confetti {
+  font-size: 64px;
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-20px) scale(1.1); }
+}
+
+.celebrationTitle {
+  font-size: 40px;
+  color: #333;
+  margin: 16px 0 8px;
+  font-weight: 800;
+}
+
+.celebrationText {
+  font-size: 18px;
+  color: #666;
+  margin: 0 0 20px;
+}
+
+.starsEarned {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  font-size: 48px;
+  margin-bottom: 8px;
+  animation: popIn 0.6s ease-out;
+}
+
+@keyframes popIn {
+  0% { transform: scale(0); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.starsText {
+  font-size: 16px;
+  color: #f5af19;
+  font-weight: 700;
+  margin: 0 0 24px;
+}
+
+.celebrationButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+@media (max-width: 400px) {
+  .title {
+    font-size: 26px;
+  }
+
+  .stepText {
+    font-size: 16px;
+  }
+
+  .timeExampleValue {
+    font-size: 36px;
+  }
+}
